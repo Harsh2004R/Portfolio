@@ -1,6 +1,10 @@
 import './App.css'
+import "./assets/fonts.css";
 import { Center, Box, Text, } from "@chakra-ui/react"
 import Home from "./mycomponents/Home.jsx"
+
+
+
 function App() {
 
   return (

@@ -1,0 +1,40 @@
+@font-face {
+  font-family: 'Headers';
+  src: url('../Fonts/Montserrat/Montserrat-VariableFont_wght.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'SubHeaders';
+  src: url('../Fonts/Montserrat/static/Montserrat-SemiBold.ttf') format('truetype');
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'bodytext1';
+  src: url('../Fonts/Roboto/Roboto-Italic-VariableFont_wdth\,wght.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'bodytext2';
+  src: url('../Fonts/Roboto/static/Roboto-Black.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'bodytext2';
+  src: url('../Fonts/Roboto/static/Roboto-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'bodytext3';
+  src: url('../Fonts/Space_Grotesk/static/SpaceGrotesk-SemiBold.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
