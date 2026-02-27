@@ -8,9 +8,9 @@ import my_logo from "../assets/Profile/logo_without_bg.png"
 
 function Navigator() {
     return (
-        <Center w="100%" h={{ base: "50px", md: "60px", lg: "70px" }} borderBottom={"1px solid grey"} p="7">
+        <Center h={{ base: "50px", md: "60px", lg: "70px" }} borderBottom={"1px solid grey"} p="7">
 
-            <Flex gap="4" justify="flex-start">
+            <Flex  justify="flex-start" border="1px solid blue">
 
                 <Image w={{ base: "80px", md: "100px", lg: "100px" }} h="20px" src={my_logo} border="1px solid red" />
             </Flex>
@@ -24,9 +24,9 @@ function Navigator() {
                         backgroundColor: "#E45447",
                         "& span": { color: "#ffffff" },
                     }} cursor="pointer"
-                      transition="all 0.3s ease"
+                    transition="all 0.3s ease"
                     p={{ base: "1", md: "2", lg: "2" }}>
-                    <Text as="span" color="#58595B"   transition="color 0.2s ease" fontSize={"14px"} fontWeight={"600"} fontFamily={"bodytext3"}>harshsharmaktm03@gmail.com</Text>
+                    <Text as="span" color="#58595B" transition="color 0.2s ease" fontSize={"14px"} fontWeight={"600"} fontFamily={"bodytext3"}>harshsharmaktm03@gmail.com</Text>
                 </Center>
                 <Box height="10" width="120px" />
             </Flex>
