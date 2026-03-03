@@ -13,17 +13,11 @@
 
 @font-face {
   font-family: 'bodytext1';
-  src: url('../Fonts/Roboto/static/Roboto_SemiCondensed-Thin.ttf') format('truetype');
-  font-weight: 400;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'bodytext2';
   src: url('../Fonts/Roboto/static/Roboto_SemiCondensed-Regular.ttf') format('truetype');
   font-weight: 400;
   font-style: normal;
 }
+
 
 @font-face {
   font-family: 'bodytext3';
