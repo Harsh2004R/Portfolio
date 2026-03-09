@@ -11,7 +11,7 @@ import my_logo from "../assets/Profile/logo_without_bg.png"
 
 function Navigator() {
     return (
-        <Center h={{ base: "50px", md: "60px", lg: "70px" }} borderBottom={"1px solid grey"} p="7">
+        <Center h={{ base: "50px", md: "60px", lg: "70px" }} borderBottom={"1px solid grey"} p={{ base: "0", md: "5", lg: "7" }}>
 
             <Box display={{ base: "none", md: "flex", lg: "flex" }} w="100%"
             // border="1px solid coral"
@@ -20,7 +20,7 @@ function Navigator() {
                     //  border="1px solid coral"
                     justify="flex-start" align={"center"}>
 
-                    <Image w={{ base: "80px", md: "100px", lg: "100px" }} h="20px" src={my_logo} />
+                    <Image  w={{ base: "80px", md: "100px", lg: "100px" }} h="25px" src={my_logo} />
                 </Flex>
 
 
@@ -89,6 +89,31 @@ function Navigator() {
                         <Text ml="5px" as="span" transition="color 0.2s ease" fontFamily={"bodytext1"} fontWeight={"500"}>Shelf</Text></Center>
                 </Flex>
 
+            </Box>
+
+
+
+
+            <Box
+                display={{ base: "flex", md: "none", lg: "none" }}
+                w="100%"
+                // border="1px solid coral"
+                p="2"
+            >
+                <Flex
+                    w="100%"
+                    align="center"
+                    justify="space-between"
+                    cursor="pointer"
+                >
+                    <Image
+                        w={{ base: "80px", md: "100px", lg: "100px" }}
+                        h="20px"
+                        src={my_logo}
+                    />
+
+                    <GiHamburgerMenu color="#58595B" size="22px" />
+                </Flex>
             </Box>
 
         </Center>
