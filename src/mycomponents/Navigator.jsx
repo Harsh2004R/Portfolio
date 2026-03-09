@@ -1,7 +1,7 @@
 import React from 'react'
-import { Center, Flex, Spacer, Box, Image, Text } from '@chakra-ui/react'
+import { Center, Flex, Spacer, Box, Image, Text, Drawer, Button, CloseButton, Portal } from '@chakra-ui/react'
 import { FaUserTie, FaFile } from "react-icons/fa";
-import { MdContactPage } from "react-icons/md";
+import { MdContactPage, MdEmail } from "react-icons/md";
 import { GiHamburgerMenu } from "react-icons/gi";
 import my_logo from "../assets/Profile/logo_without_bg.png"
 
@@ -11,7 +11,7 @@ import my_logo from "../assets/Profile/logo_without_bg.png"
 
 function Navigator() {
     return (
-        <Center h={{ base: "50px", md: "60px", lg: "70px" }} borderBottom={"1px solid grey"} p={{ base: "0", md: "5", lg: "7" }}>
+        <Center h={{ base: "50px", md: "60px", lg: "70px" }} p={{ base: "0", md: "10", lg: "12" }}>
 
             <Box display={{ base: "none", md: "flex", lg: "flex" }} w="100%"
             // border="1px solid coral"
@@ -20,7 +20,7 @@ function Navigator() {
                     //  border="1px solid coral"
                     justify="flex-start" align={"center"}>
 
-                    <Image  w={{ base: "80px", md: "100px", lg: "100px" }} h="25px" src={my_logo} />
+                    <Image w={{ base: "80px", md: "100px", lg: "100px" }} h="25px" src={my_logo} />
                 </Flex>
 
 
@@ -93,6 +93,9 @@ function Navigator() {
 
 
 
+            {/* ..............................................................Mobile Navigation............................................................... */}
+
+
 
             <Box
                 display={{ base: "flex", md: "none", lg: "none" }}
@@ -112,7 +115,47 @@ function Navigator() {
                         src={my_logo}
                     />
 
-                    <GiHamburgerMenu color="#58595B" size="22px" />
+
+                    <Drawer.Root>
+                        <Drawer.Trigger asChild>
+                            <GiHamburgerMenu color="#58595B" size="22px" />
+                        </Drawer.Trigger>
+                        <Portal>
+                            <Drawer.Backdrop />
+                            <Drawer.Positioner>
+                                <Drawer.Content>
+                                    <Drawer.Context>
+                                        {(store) => (
+                                            <Drawer.Body pt="6" spaceY="3">
+                                                {/* <Text color="coral">Get more about me </Text> */}
+                                                <Flex flexDirection={"column"} w="100%" minH="50%">
+                                                    <Flex p="20px" justify={"flex-start"}>
+
+                                                    </Flex>
+                                                    <Flex p="15px" justify={"flex-start"}>
+                                                        <MdEmail />  <Text ml="5px" fontFamily={"bodytext3"} fontSize={"sm"}>Email </Text>
+                                                    </Flex>
+                                                    <Flex p="15px" justify={"flex-start"}>
+                                                        <FaUserTie />  <Text ml="5px" fontFamily={"bodytext3"} fontSize={"sm"}>Resume </Text>
+                                                    </Flex>
+                                                    <Flex p="15px" justify={"flex-start"}>
+                                                        <FaFile /> <Text ml="5px" fontFamily={"bodytext3"} fontSize={"sm"}>Works </Text>
+                                                    </Flex>
+                                                    <Flex p="15px" justify={"flex-start"}>
+                                                        <MdContactPage /><Text ml="5px" fontFamily={"bodytext3"} fontSize={"sm"}>Shelf </Text>
+                                                    </Flex>
+                                                </Flex>
+                                                {/* <button onClick={() => store.setOpen(false)}>Close</button> */}
+                                            </Drawer.Body>
+                                        )}
+                                    </Drawer.Context>
+                                    <Drawer.CloseTrigger asChild>
+                                        <CloseButton size="xl" />
+                                    </Drawer.CloseTrigger>
+                                </Drawer.Content>
+                            </Drawer.Positioner>
+                        </Portal>
+                    </Drawer.Root>
                 </Flex>
             </Box>
 
