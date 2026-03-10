@@ -23,7 +23,7 @@ function Skills() {
             </Center>
 
 
-            <Flex mt="2.25rem" w="100%" minH="70vh" bg="#F2F0EE">
+            <Flex mt="2.25rem" w="100%" minH="70vh" bg="#F2F0EE" borderRadius={"md"}>
                 <Box p={{ base: "2", md: "3", lg: "5" }} w="100%" h={{ base: "70vh", md: "70vh", lg: "70vh" }}
                 // border="1px solid red"
                 >
