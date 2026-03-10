@@ -2,6 +2,7 @@ import Navigator from './Navigator'
 import { Box, Text } from '@chakra-ui/react'
 import Profile from "./Profile"
 import Skills from "./Skills"
+import Me from "./Me"
 
 
 function Home() {
@@ -14,10 +15,11 @@ function Home() {
     >
 
       <Navigator />
-      <Profile/>
-      <Skills/>
+      <Profile />
+      <Skills />
+      <Me />
 
-   
+
     </Box>
   )
 }
