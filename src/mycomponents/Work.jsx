@@ -1,10 +1,25 @@
 import React from 'react'
 import { Box, Text, Image, Flex, Grid, Center } from "@chakra-ui/react"
+import { Link } from 'react-router-dom';
+import { FaGithub } from "react-icons/fa";
 
 
 
 
 function Work() {
+
+    const UIUX = [
+        {
+            id: 1,
+            title: "Laundry Application UI",
+            description: "This Application is designed to solve problem of unavailability of laundry services in Tear-1 and Tear-2 or hostel areas.",
+            image: "https://res.cloudinary.com/djbe55v48/image/upload/v1773159606/Portfolio/Laundry_App_ylmjrt.png",
+            tools: "Figma & many more",
+            liveurl: "https://www.figma.com/design/IZku0r2VHklQJ6wWlX0XTG/Laundry-Application-UIUX?node-id=0-1&t=RD6K8TC8tpySgI96-1",
+
+
+        }
+    ]
     const projects = [
         {
             id: 1,
@@ -134,7 +149,7 @@ function Work() {
         },
     ];
     return (
-        <Box p={{ base: "2", md: "14", lg: "16" }} w="100%" minH="100vh" border={"2px solid grey"}>
+        <Box p={{ base: "2", md: "14", lg: "16" }} w="100%" minH="100vh" >
             <Text pl={{ base: "4", md: "0", lg: "0" }} color="#58595B" fontFamily={"bodytext3"} fontWeight={"600"} fontSize={{ base: "1.75rem", md: "2rem", lg: "2.25rem" }}>My Works</Text>
             <Text pl={{ base: "4", md: "0", lg: "0" }} color="#58595B" fontFamily={"bodytext3"} fontSize={{ base: ".95rem", md: "1rem", lg: "1.125rem" }} >
                 few of my past and present projects
@@ -149,6 +164,209 @@ function Work() {
             </Center>
 
             <Text mt="0.75rem" pl={{ base: "4", md: "0", lg: "0" }} color="#58595B" fontFamily={"bodytext3"} fontWeight={"500"} fontSize={{ base: "1.25rem", md: "1.35rem", lg: "1.55rem" }}>Web Applications</Text>
+
+            {/* PROJECT GRID */}
+
+            <Grid
+                mt="10"
+                gap="8"
+                templateColumns={{
+                    base: "1fr",
+                    md: "repeat(2,1fr)",
+                    lg: "repeat(2,1fr)"
+                }}
+            >
+
+                {projects.map((project) => (
+
+                    <Box
+                        key={project.id}
+                        position="relative"
+                        overflow="hidden"
+                        borderRadius="12px"
+                        role="group"
+                        cursor="pointer"
+                        boxShadow="lg"
+                    // border={"1px solid red"}
+                    >
+                        {/* IMAGE */}
+
+                        <Image
+                            src={project.image}
+                            w="100%"
+                            h={{ base: "180px", md: "180px", lg: "300px" }}
+                            objectFit="cover"
+                            transition="0.4s"
+                            _groupHover={{
+                                transform: "scale(1.05)"
+                            }}
+                        />
+
+                        {/* HOVER OVERLAY */}
+
+                        <a href={project.liveUrl} target="_blank" rel="noopener noreferrer"> <Flex
+                            position="absolute"
+
+                            left="0"
+                            bottom={"0"}
+                            w="100%"
+                            h="60%"
+                            // bg="#52607A"
+                            // bg="#2d3748"
+                            bg="#6379a199"
+                            opacity="0"
+                            transition="0.35s"
+                            // transform="translateY(100%)"
+                            _hover={{
+                                opacity: "0.92",
+                                transform: "translateY(0%)"
+                            }}
+                            flexDirection="column"
+                            justify="center"
+                            p="6"
+                            color="white"
+                        >
+
+                            <Flex w="100%" justifyContent={"space-between"}>
+                                <Text
+                                    // fontFamily={"Headers"}
+                                    fontFamily={"SubHeaders"}
+                                    fontWeight="500"
+                                    fontSize="xl"
+                                    mb="2" mr="5px"
+                                >
+                                    {project.title}
+                                </Text>
+                                <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">  <FaGithub color="#1E88E5" size={"30px"} /></a>
+                            </Flex>
+
+                            <Text
+                                fontFamily={"bodytext4"}
+                                fontSize="sm"
+                                mb="4"
+                                lineHeight="1.6"
+                            >
+                                {project.description}
+                            </Text>
+                            <Text
+                                fontFamily={"bodytext3"}
+                                fontWeight="600"
+                                fontSize="xs"
+                                mb="2"
+                                color="#1E88E5"
+                            >
+                                {project.technologies.join(", ")}
+                            </Text>
+                        </Flex>
+                        </a>
+
+
+                    </Box>
+
+                ))}
+            </Grid>
+
+
+            {/* Native Application Grid */}
+
+            <Text mt="2.75rem" pl={{ base: "4", md: "0", lg: "0" }} color="#58595B" fontFamily={"bodytext3"} fontWeight={"500"} fontSize={{ base: "1.25rem", md: "1.35rem", lg: "1.55rem" }}>Native UI/UX</Text>
+
+            <Grid
+                mt="10"
+                gap="8"
+                templateColumns={{
+                    base: "1fr",
+                    md: "repeat(2,1fr)",
+                    lg: "repeat(2,1fr)"
+                }}
+            >
+                {UIUX.map((project) => (
+
+                    <Box
+                        key={project.id}
+                        position="relative"
+                        overflow="hidden"
+                        borderRadius="12px"
+                        role="group"
+                        cursor="pointer"
+                        boxShadow="lg"
+                    >
+
+                        {/* IMAGE */}
+
+                        <Image
+                            src={project.image}
+                            w="100%"
+                            h={{ base: "180px", md: "180px", lg: "300px" }}
+                            objectFit="cover"
+                            transition="0.4s"
+                            _groupHover={{
+                                transform: "scale(1.05)"
+                            }}
+                        />
+
+                        {/* HOVER OVERLAY */}
+
+                        <a href={project.liveurl} target="_blank" rel="noopener noreferrer"> <Flex
+                            position="absolute"
+
+                            left="0"
+                            bottom={"0"}
+                            w="100%"
+                            h="60%"
+                            // bg="#52607A"
+                            // bg="#2d3748"
+                            bg="#6379a199"
+                            opacity="0"
+                            transition="0.35s"
+                            // transform="translateY(100%)"
+                            _hover={{
+                                opacity: "0.92",
+                                transform: "translateY(0%)"
+                            }}
+                            flexDirection="column"
+                            justify="center"
+                            p="6"
+                            color="white"
+                        >
+
+                            <Text
+                                fontFamily={"SubHeaders"}
+                                fontWeight="500"
+                                fontSize="xl"
+                                mb="2"
+                            >
+                                {project.title}
+                            </Text>
+
+                            <Text
+                                fontFamily={"bodytext4"}
+                                fontSize="sm"
+                                mb="4"
+                                lineHeight="1.6"
+                            >
+                                {project.description}
+                            </Text>
+
+                            <Text
+                                fontFamily={"bodytext3"}
+                                fontWeight="600"
+                                fontSize="xs"
+                                color="#1E88E5"
+                            >
+                                {project.tools}
+                            </Text>
+
+                        </Flex>
+                        </a>
+
+                    </Box>
+
+                ))}
+            </Grid>
+
+
+
         </Box>
     )
 }
