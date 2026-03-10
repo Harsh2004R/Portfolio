@@ -3,6 +3,7 @@ import { Box, Text } from '@chakra-ui/react'
 import Profile from "./Profile"
 import Skills from "./Skills"
 import Me from "./Me"
+import Work from "./Work"
 
 
 function Home() {
@@ -18,6 +19,7 @@ function Home() {
       <Profile />
       <Skills />
       <Me />
+      <Work />
 
 
     </Box>
