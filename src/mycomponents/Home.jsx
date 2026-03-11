@@ -4,6 +4,7 @@ import Profile from "./Profile"
 import Skills from "./Skills"
 import Me from "./Me"
 import Work from "./Work"
+import Contact from "./Contact"
 
 
 function Home() {
@@ -20,7 +21,7 @@ function Home() {
       <Skills />
       <Me />
       <Work />
-
+      <Contact />
 
     </Box>
   )
