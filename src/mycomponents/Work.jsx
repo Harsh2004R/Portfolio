@@ -366,6 +366,17 @@ function Work() {
             </Grid>
 
 
+            <Center borderRadius={"lg"} mt={{ base: "4rem", md: "5rem", lg: "6rem" }} w={{ base: "100%", md: "55vw", lg: "40vw" }} p={{ base: "2rem", md: "2.55rem", lg: "3.25rem" }} flexDirection={{ base: "column", md: "column", lg: "row" }} boxShadow="rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;" >
+                <Text textAlign={"center"} color="#58595B" fontSize={{ base: "1rem", md: "1rem", lg: "1.1rem" }} fontWeight={"600"} fontFamily={"bodytext3"}>
+                    I cook with these ingredients 👉
+                </Text>
+                <Center transition={"0.3s"} bg="rgba(222, 222, 222, 0.36)" border="0.5px solid #bcbbbba5" _hover={{ backgroundColor: "rgba(161, 161, 161, 0.44)", cursor: "pointer" }} ml={{ base: "0px", md: "20px", lg: "30px" }} pl="5" pr="5" pt="2" pb="2" borderRadius={"full"}>
+                    <Text textAlign={"center"} color="#222222" fontSize={{ base: "1.25rem", md: "1.25rem", lg: "1.5rem" }} fontWeight={"600"} fontFamily={"bodytext3"}>
+                        My Resume
+                    </Text>
+                </Center>
+            </Center>
+
 
         </Box>
     )
