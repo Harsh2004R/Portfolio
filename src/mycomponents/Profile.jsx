@@ -1,30 +1,40 @@
 import React from 'react'
 import { FaLinkedin, FaInstagram, FaTwitter, FaGithub } from "react-icons/fa";
-import { Box, Text, Image, Flex, Center, Heading } from "@chakra-ui/react";
+import { Box, Text, Image, Flex, Center, Heading, Link } from "@chakra-ui/react";
 import profile from "../assets/Profile/profile_croped.png"
-
 
 function Profile() {
     return (
         <>
             <Flex flexDirection={{ base: "column", md: "row", lg: "row" }} w="100%" minH={{ base: "90vh", md: "100vh", lg: "100vh" }} >
+
                 <Center display={{ base: "none", md: "flex", lg: "flex" }} h="100vh" w="10%">
                     <Flex flexDirection={"column"} h="30vh" justifyContent={"space-between"}>
-                        <Box _hover={{ cursor: "pointer" }}>
-                            <FaLinkedin size="28px" color="#58595B" />
-                        </Box>
 
-                        <Box _hover={{ cursor: "pointer" }}>
-                            <FaInstagram size="28px" color="#58595B" />
-                        </Box>
+                        <Link href="https://www.linkedin.com/in/harsh-sharma-0545aa25b/" isExternal>
+                            <Box _hover={{ cursor: "pointer", transform: "scale(1.2)", transition: "0.2s" }}>
+                                <FaLinkedin size="28px" color="#58595B" />
+                            </Box>
+                        </Link>
 
-                        <Box _hover={{ cursor: "pointer" }}>
-                            <FaTwitter size="28px" color="#58595B" />
-                        </Box>
+                        <Link href="https://www.instagram.com/harsh_2004r/" isExternal>
+                            <Box _hover={{ cursor: "pointer", transform: "scale(1.2)", transition: "0.2s" }}>
+                                <FaInstagram size="28px" color="#58595B" />
+                            </Box>
+                        </Link>
 
-                        <Box _hover={{ cursor: "pointer" }}>
-                            <FaGithub size="28px" color="#58595B" />
-                        </Box>
+                        <Link href="https://twitter.com/Harsh2004R" isExternal>
+                            <Box _hover={{ cursor: "pointer", transform: "scale(1.2)", transition: "0.2s" }}>
+                                <FaTwitter size="28px" color="#58595B" />
+                            </Box>
+                        </Link>
+
+                        <Link href="https://github.com/harsh2004r" isExternal>
+                            <Box _hover={{ cursor: "pointer", transform: "scale(1.2)", transition: "0.2s" }}>
+                                <FaGithub size="28px" color="#58595B" />
+                            </Box>
+                        </Link>
+
                     </Flex>
                 </Center>
 
@@ -44,9 +54,9 @@ function Profile() {
                         </Text>
                     </Box>
                 </Center>
+
                 <Center p="4" w={{ base: "100%", md: "50%", lg: "50%" }} h={{ base: "40%", md: "100vh", lg: "100vh" }}>
                     <Image
-
                         src={profile}
                         boxSize={{ base: "280px", md: "470px", lg: "550px" }}
                         borderBottomLeftRadius="full"
@@ -55,8 +65,8 @@ function Profile() {
                         alt="Profile.png"
                     />
                 </Center>
-            </Flex>
 
+            </Flex>
         </>
     )
 }
