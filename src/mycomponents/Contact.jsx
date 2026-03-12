@@ -14,10 +14,11 @@ import {
     Icon,
     Link,
     Stack,
+    Clipboard, IconButton
 } from "@chakra-ui/react";
 
 import { Toaster, toaster } from "../components/ui/toaster.jsx";
-
+import { API_BASE_URL } from "../utils/base-url/index.js"
 import { motion } from "framer-motion";
 
 import {
@@ -25,7 +26,6 @@ import {
     Phone,
     MapPin,
     Send,
-    Copy,
     Github,
     Linkedin,
     Twitter,
@@ -33,7 +33,7 @@ import {
 
 const MotionBox = motion(Box);
 
-const Contact = () => {
+const Contact = ({load,data}) => {
     const [formData, setFormData] = useState({
         name: "",
         email: "",
@@ -52,46 +52,131 @@ const Contact = () => {
         }));
     };
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
+    const validateForm = () => {
+        const { name, email, subject, message } = formData;
 
-        setLoading(true);
-
-        setTimeout(() => {
+        if (!name.trim()) {
             toaster.create({
-                title: "Message Sent!",
-                description: "Thanks for reaching out.",
-                type: "success",
+                title: "Name Required",
+                description: "Please enter your name.",
+                type: "warning",
             });
+            return false;
+        }
 
-            setLoading(false);
-
-            setFormData({
-                name: "",
-                email: "",
-                subject: "",
-                message: "",
-            });
-        }, 1200);
-    };
-
-    const copyEmail = async () => {
-        try {
-            await navigator.clipboard.writeText("harshsharmaktm03@gmail.com");
-
+        if (!email.trim()) {
             toaster.create({
-                title: "Email Copied",
-                description: "Email copied to clipboard.",
-                type: "success",
-                duration: 2000,
+                title: "Email Required",
+                description: "Please enter your email.",
+                type: "warning",
             });
-        } catch (error) {
+            return false;
+        }
+
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+        if (!emailRegex.test(email)) {
             toaster.create({
-                title: "Copy Failed",
-                description: "Unable to copy email.",
+                title: "Invalid Email",
+                description: "Please enter a valid email address.",
                 type: "error",
             });
+            return false;
         }
+
+        if (!subject.trim()) {
+            toaster.create({
+                title: "Subject Required",
+                description: "Please enter the subject.",
+                type: "warning",
+            });
+            return false;
+        }
+
+        if (!message.trim()) {
+            toaster.create({
+                title: "Message Required",
+                description: "Please write your message.",
+                type: "warning",
+            });
+            return false;
+        }
+
+        if (message.trim().length < 10) {
+            toaster.create({
+                title: "Message Too Short",
+                description: "Message should contain at least 10 characters.",
+                type: "warning",
+            });
+            return false;
+        }
+
+        return true;
+    };
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        const isValid = validateForm();
+        if (!isValid) return;
+        setLoading(true);
+        try {
+
+            const res = await fetch(`${API_BASE_URL}/api/v1/contacts`, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(formData),
+            });
+            const json = await res.json();
+            console.log(json)
+            if (!res.ok || !json.success) {
+                toaster.create({
+                    title: "Request Not sent !",
+                    description: "Server Error in sending request...",
+                    type: "error",
+                });
+
+                setLoading(false);
+
+                setFormData({
+                    name: "",
+                    email: "",
+                    subject: "",
+                    message: "",
+                });
+                // throw new Error(json.message || "Failed to send");
+            } else {
+                toaster.create({
+                    title: "Message Sent!",
+                    description: "Thanks for reaching out.",
+                    type: "success",
+                });
+
+                setLoading(false);
+
+                setFormData({
+                    name: "",
+                    email: "",
+                    subject: "",
+                    message: "",
+                });
+                setFormData({ name: "", email: "", subject: "", message: "" });
+            }
+
+        } catch (error) {
+            console.log("Error from catch block:", "eror:", error)
+        } finally {
+            setLoading(false);
+        }
+
+    };
+
+    function copyEmail() {
+        toaster.create({
+            title: "Email Copied",
+            description: "harshsharmaktm03@gmail.com",
+            type: "success",
+            duration: 2000,
+        });
     };
 
     return (
@@ -195,14 +280,21 @@ const Contact = () => {
                                     </Text>
                                 </Box>
 
-                                <Button
-                                    size="sm"
-                                    onClick={copyEmail}
-                                    minW="36px"
-                                    h="36px"
-                                >
-                                    <Icon as={Copy} />
-                                </Button>
+
+                                <Clipboard.Root value="harshsharmaktm03@gmail.com">
+                                    <Clipboard.Trigger asChild>
+                                        <IconButton
+                                            onClick={copyEmail}
+                                            variant="outline"
+                                            size="xs"
+                                            color="black"
+                                            borderColor="black"
+                                            _hover={{ bg: "black", color: "white" }}
+                                        >
+                                            <Clipboard.Indicator />
+                                        </IconButton>
+                                    </Clipboard.Trigger>
+                                </Clipboard.Root>
                             </Flex>
 
                             {/* Phone */}
@@ -314,7 +406,7 @@ const Contact = () => {
                             // border="1px solid red"
                             p={{ base: "15px", md: "30px", lg: "40px" }}
                             borderRadius="18px"
-                            bg="#FAFAFA"
+                            bg="#F7F7F7"
                             initial={{ opacity: 0, y: 40 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
@@ -331,6 +423,7 @@ const Contact = () => {
                             <form onSubmit={handleSubmit}>
                                 <Stack spacing="18px">
                                     <Input
+                                        color="#e45447"
                                         h={{ base: "44px", md: "48px" }}
                                         border="1px solid"
                                         borderColor="gray.200"
@@ -346,6 +439,7 @@ const Contact = () => {
                                     />
 
                                     <Input
+                                        color="#e45447"
                                         h={{ base: "44px", md: "48px" }}
                                         border="1px solid"
                                         borderColor="gray.200"
@@ -361,6 +455,7 @@ const Contact = () => {
                                     />
 
                                     <Input
+                                        color="#58595B"
                                         h={{ base: "44px", md: "48px" }}
                                         border="1px solid"
                                         borderColor="gray.200"
@@ -376,6 +471,7 @@ const Contact = () => {
                                     />
 
                                     <Textarea
+                                        color="#e45447"
                                         rows={6}
                                         placeholder="Write your message..."
                                         name="message"
@@ -393,7 +489,8 @@ const Contact = () => {
                                         size={{ base: "md", md: "lg" }}
                                         rightIcon={<Send size={18} />}
                                         _hover={{ bg: "#3e3f42" }}
-                                        isLoading={loading}
+                                        loading={loading}
+                                        loadingText="Sending Request..."
                                     >
                                         Send Message
                                     </Button>

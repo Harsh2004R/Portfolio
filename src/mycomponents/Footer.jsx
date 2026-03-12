@@ -4,12 +4,13 @@ import { FaUserTie, FaFile } from "react-icons/fa";
 import { MdContactPage } from "react-icons/md";
 import { GiHamburgerMenu } from "react-icons/gi";
 import my_logo from "../assets/Profile/logo_without_bg.png"
+import { Spinner } from "@chakra-ui/react"
 
 
 
 
-
-function Footer() {
+function Footer({ load, data }) {
+    console.log("load:", load, "data:", data)
     return (
         <>
             <Center flexDirection={"column"} w="100%" h="auto" gap="5" borderBottom={"1px solid grey"} pt={{ base: "8", md: "12", lg: "14" }} pb={{ base: "10", md: "12", lg: "14" }}>
@@ -74,7 +75,22 @@ function Footer() {
                     <Flex flex="1" gap="4" justify={{ base: "center", md: "flex-end", lg: "flex-end" }} >
                         <Center height="10"
                             p={{ base: "1", md: "2", lg: "2" }}>
-                            <Text fontSize="xs" letterSpacing={"0.5px"} as="span" color="#58595B" transition="color 0.2s ease" fontFamily={"bodytext3"}>© 2026 ken. all rights reserved</Text>
+                            {data?.year ? (
+                                <Text
+                                    fontSize="xs"
+                                    letterSpacing="0.5px"
+                                    as="span"
+                                    color="#58595B"
+                                    fontFamily="bodytext3"
+                                >
+                                    ©{data.year} Harsh Sharma all rights reserved
+                                </Text>
+                            ) : (
+                                <Spinner
+                                    color="red.500"
+                                    css={{ "--spinner-track-color": "colors.gray.200" }}
+                                />
+                            )}
                         </Center>
                     </Flex>
 
