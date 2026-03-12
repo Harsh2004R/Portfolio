@@ -1,6 +1,5 @@
 import React from 'react'
-import { Box, Text, Image, Flex, Grid, Center } from "@chakra-ui/react"
-import { Link } from 'react-router-dom';
+import { Box, Text, Image, Flex, Grid, Center, Link } from "@chakra-ui/react"
 import { FaGithub } from "react-icons/fa";
 
 
@@ -94,46 +93,46 @@ function Work() {
             category: "fullstack",
             featured: true,
         },
-        {
-            id: 5,
-            title: "Carters E-comerce",
-            description:
-                "A Collaborative Construct week project Masai School Batch(JS201). This is a clone of carters.com Members of Project group are Ayush kr Shanu,Manideep Peddaboini,Harsh Sharma,Sambhaji Dhore,Mohd Sharique",
-            image:
-                "https://res.cloudinary.com/djbe55v48/image/upload/v1757339119/Portfolio/carters_srkfpe.png",
-            technologies: ["HTML", "CSS", "Java Script", "JSON Server", "Railway"],
-            liveUrl: "https://adorable-raindrop-e0f0b2.netlify.app",
-            githubUrl: "https://github.com/Ayush-kr-shanu/carters.com",
-            category: "frontend",
-            featured: false,
-        },
-        {
-            id: 6,
-            title: "Github repo viewer",
-            description:
-                "A simple and user friendly mini project where user can view others github profile on this platform.",
-            image:
-                "https://res.cloudinary.com/djbe55v48/image/upload/v1757339512/Portfolio/github-repo-viewer_engx49.png",
-            technologies: ["Vite"],
-            liveUrl:
-                "https://git-hub-repository-viewer-7yvulw3f2-harsh2004r.vercel.app/",
-            githubUrl: "https://github.com/Harsh2004R/gitHub_repository_viewer",
-            category: "frontend",
-            featured: false,
-        },
-        {
-            id: 7,
-            title: "Generic Pagination",
-            description:
-                "React application that demonstrates pagination functionality using the @ajna/pagination library and includes sorting and filtering features. The app also uses the Chakra UI library for the user interface.",
-            image:
-                "https://res.cloudinary.com/djbe55v48/image/upload/v1757339511/Portfolio/pagination_ijwts6.png",
-            technologies: ["React.js", "Chakra UI", "Ajna-npm", "Netlify"],
-            liveUrl: "https://pagination-j19gkomcg-harsh2004r.vercel.app/",
-            githubUrl: "https://github.com/Harsh2004R/sorting_filtering_pagination",
-            category: "frontend",
-            featured: false,
-        },
+        // {
+        //     id: 5,
+        //     title: "Carters E-comerce",
+        //     description:
+        //         "A Collaborative Construct week project Masai School Batch(JS201). This is a clone of carters.com Members of Project group are Ayush kr Shanu,Manideep Peddaboini,Harsh Sharma,Sambhaji Dhore,Mohd Sharique",
+        //     image:
+        //         "https://res.cloudinary.com/djbe55v48/image/upload/v1757339119/Portfolio/carters_srkfpe.png",
+        //     technologies: ["HTML", "CSS", "Java Script", "JSON Server", "Railway"],
+        //     liveUrl: "https://adorable-raindrop-e0f0b2.netlify.app",
+        //     githubUrl: "https://github.com/Ayush-kr-shanu/carters.com",
+        //     category: "frontend",
+        //     featured: false,
+        // },
+        // {
+        //     id: 6,
+        //     title: "Github repo viewer",
+        //     description:
+        //         "A simple and user friendly mini project where user can view others github profile on this platform.",
+        //     image:
+        //         "https://res.cloudinary.com/djbe55v48/image/upload/v1757339512/Portfolio/github-repo-viewer_engx49.png",
+        //     technologies: ["Vite"],
+        //     liveUrl:
+        //         "https://git-hub-repository-viewer-7yvulw3f2-harsh2004r.vercel.app/",
+        //     githubUrl: "https://github.com/Harsh2004R/gitHub_repository_viewer",
+        //     category: "frontend",
+        //     featured: false,
+        // },
+        // {
+        //     id: 7,
+        //     title: "Generic Pagination",
+        //     description:
+        //         "React application that demonstrates pagination functionality using the @ajna/pagination library and includes sorting and filtering features. The app also uses the Chakra UI library for the user interface.",
+        //     image:
+        //         "https://res.cloudinary.com/djbe55v48/image/upload/v1757339511/Portfolio/pagination_ijwts6.png",
+        //     technologies: ["React.js", "Chakra UI", "Ajna-npm", "Netlify"],
+        //     liveUrl: "https://pagination-j19gkomcg-harsh2004r.vercel.app/",
+        //     githubUrl: "https://github.com/Harsh2004R/sorting_filtering_pagination",
+        //     category: "frontend",
+        //     featured: false,
+        // },
         {
             id: 8,
             title: "API Gateway",
@@ -370,11 +369,17 @@ function Work() {
                 <Text textAlign={"center"} color="#58595B" fontSize={{ base: "1rem", md: "1rem", lg: "1.1rem" }} fontWeight={"600"} fontFamily={"bodytext3"}>
                     I cook with these ingredients 👉
                 </Text>
-                <Center transition={"0.3s"} bg="rgba(222, 222, 222, 0.36)" border="0.5px solid #bcbbbba5" _hover={{ backgroundColor: "rgba(161, 161, 161, 0.44)", cursor: "pointer" }} ml={{ base: "0px", md: "20px", lg: "30px" }} pl="5" pr="5" pt="2" pb="2" borderRadius={"full"}>
-                    <Text textAlign={"center"} color="#222222" fontSize={{ base: "1.25rem", md: "1.25rem", lg: "1.5rem" }} fontWeight={"600"} fontFamily={"bodytext3"}>
-                        My Resume
-                    </Text>
-                </Center>
+                <Link
+                    href="https://drive.google.com/file/d/14VEeN7mSyGmTiTE0PSuA2ip6RzJ6i_-G/view?usp=sharing"
+                    isExternal
+                    _hover={{ textDecoration: "none" }}
+                >
+                    <Center transition={"0.3s"} bg="rgba(222, 222, 222, 0.36)" border="0.5px solid #bcbbbba5" _hover={{ backgroundColor: "rgba(161, 161, 161, 0.44)", cursor: "pointer" }} ml={{ base: "0px", md: "20px", lg: "30px" }} pl="5" pr="5" pt="2" pb="2" borderRadius={"full"}>
+                        <Text textAlign={"center"} color="#222222" fontSize={{ base: "1.25rem", md: "1.25rem", lg: "1.5rem" }} fontWeight={"600"} fontFamily={"bodytext3"}>
+                            My Resume
+                        </Text>
+                    </Center>
+                </Link>
             </Center>
 
 
