@@ -12,7 +12,7 @@ function Me() {
 
             <Center
                 // border="2px solid cyan"
-                w={{ base: "90%", md: "60%", lg: "60%" }} minH={{ base: "130vh", md: "100vh", lg: "100vh" }}
+                w={{ base: "90%", md: "68%", lg: "70%" }} minH={{ base: "130vh", md: "100vh", lg: "100vh" }}
                 borderRadius={"md"}
                 bgColor={"#F2F0EE"}
                 p={{ base: "0", md: "4", lg: "4" }}
