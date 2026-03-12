@@ -370,10 +370,12 @@ function Work() {
                     I cook with these ingredients 👉
                 </Text>
                 <Link
-                    href="https://drive.google.com/file/d/14VEeN7mSyGmTiTE0PSuA2ip6RzJ6i_-G/view?usp=sharing"
+                    href="https://drive.google.com/file/d/12wRf2MhzpCeunuQBb6UV5HQOG_btKuZe/view"
                     isExternal
                     _hover={{ textDecoration: "none" }}
                 >
+                    
+
                     <Center transition={"0.3s"} bg="rgba(222, 222, 222, 0.36)" border="0.5px solid #bcbbbba5" _hover={{ backgroundColor: "rgba(161, 161, 161, 0.44)", cursor: "pointer" }} ml={{ base: "0px", md: "20px", lg: "30px" }} pl="5" pr="5" pt="2" pb="2" borderRadius={"full"}>
                         <Text textAlign={"center"} color="#222222" fontSize={{ base: "1.25rem", md: "1.25rem", lg: "1.5rem" }} fontWeight={"600"} fontFamily={"bodytext3"}>
                             My Resume
