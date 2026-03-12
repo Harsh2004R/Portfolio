@@ -1,11 +1,12 @@
 import react, { useState, useEffect, Suspense, lazy } from "react";
 import './App.css'
 import "./assets/fonts.css";
-import { Center, Box, Text, Spinner } from "@chakra-ui/react"
+import { Center } from "@chakra-ui/react"
 const Home = lazy(() => import("./mycomponents/Home.jsx"));
 const Footer = lazy(() => import("./mycomponents/Footer.jsx"));
-import {API_BASE_URL} from "./utils/base-url/index.js"
-
+import { API_BASE_URL } from "./utils/base-url/index.js"
+import AllRoutes from "./Routes/AllRoutes.jsx";
+import SplashScreen from "./mycomponents/SplashScreen.jsx"
 
 
 function App() {
@@ -34,14 +35,15 @@ function App() {
     ping();
   }, []);
   return (
+
     <Suspense
-      fallback={<Spinner />}
+      fallback={<SplashScreen />}
     >
       <Center flexDirection={"column"} w="100%" pl={{ base: "10px", md: "10%", lg: "12%" }} h="auto"
         pr={{ base: "10px", md: "10%", lg: "12%" }} bg="#F2F0EE"
       >
+        <AllRoutes />
 
-        <Home />
         <Footer load={load} data={data} />
 
 

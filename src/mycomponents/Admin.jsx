@@ -78,9 +78,13 @@ const Admin = () => {
                 align="center"
                 justify="center"
                 bg="white"
+                borderRadius={"md"}
                 p="4"
+                w="100%" boxShadow="rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px"
+                mt={{ base: "25px", md: "50px", lg: "60px" }}
             >
                 <Box
+                    // border="1px solid lime"
                     w="100%"
                     maxW="420px"
                     p="8"
@@ -88,7 +92,7 @@ const Admin = () => {
                     borderRadius="xl"
                     boxShadow="xl"
                 >
-                    <Flex align="center" gap="3" mb="6">
+                    <Flex align="center" gap="3" mb="6" >
                         <Box bg="gray.100" p="3" borderRadius="lg">
                             <Icon as={Lock} boxSize="6" color="black" />
                         </Box>
@@ -104,11 +108,12 @@ const Admin = () => {
 
                     <form onSubmit={handleAccess}>
 
-                        <Box>
+                        <Box w="100%" >
                             <Text
                                 mb="2"
                                 fontFamily="bodytext3"
                                 fontSize="sm"
+                                color="#58595B"
                             >
                                 Admin API Secret
                             </Text>
@@ -142,10 +147,14 @@ const Admin = () => {
                         )}
 
                         <Button
+                            w="100%"
+                            mt="10px" borderRadius={"full"}
                             type="submit"
-                            bg="black"
-                            color="white"
-                            _hover={{ bg: "gray.800" }}
+                            bg="grey.200"
+                            transition={"0.27s"}
+                            shadow="sm"
+                            color="@000"
+                            _hover={{ bg: "#2963d6", color: "#fff", shadow: "sm" }}
                             isDisabled={loading}
                             leftIcon={
                                 loading ? (
@@ -167,7 +176,8 @@ const Admin = () => {
     /* ---------------- CONTACT DASHBOARD ---------------- */
 
     return (
-        <Box minH="100vh" bg="white" p="6">
+        <Box borderRadius={"md"} boxShadow="rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px"
+            mt={{ base: "25px", md: "35px", lg: "40px" }} minH="100vh" bg="white" p="6">
             <Box maxW="1100px" mx="auto">
                 <Heading
                     mb="8"
