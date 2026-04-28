@@ -18,8 +18,8 @@ function Home() {
 
       <Navigator />
       <Profile />
-      <Skills />
       <Me />
+      <Skills />
       <Work />
       <Contact />
 
