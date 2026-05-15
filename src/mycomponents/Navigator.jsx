@@ -1,166 +1,253 @@
-import React from 'react'
-import { Center, Flex, Spacer, Box, Image, Text, Drawer, Button, CloseButton, Portal } from '@chakra-ui/react'
+import React from "react";
+import {
+  Center,
+  Flex,
+  Spacer,
+  Box,
+  Image,
+  Text,
+  Drawer,
+  Button,
+  CloseButton,
+  Portal,
+} from "@chakra-ui/react";
 import { FaUserTie, FaFile } from "react-icons/fa";
 import { MdContactPage, MdEmail } from "react-icons/md";
 import { GiHamburgerMenu } from "react-icons/gi";
-import my_logo from "../assets/Profile/logo_without_bg.png"
-
-
-
-
+import my_logo from "../assets/Profile/logo_without_bg.png";
+import { Link } from "react-router-dom";
 
 function Navigator() {
-    return (
-        <Center h={{ base: "50px", md: "60px", lg: "70px" }} p={{ base: "0", md: "10", lg: "12" }}>
+  return (
+    <Center
+      h={{ base: "50px", md: "60px", lg: "70px" }}
+      p={{ base: "0", md: "10", lg: "12" }}
+    >
+      <Box
+        display={{ base: "none", md: "flex", lg: "flex" }}
+        w="100%"
+        // border="1px solid coral"
+      >
+        <Flex
+          cursor={"pointer"}
+          //  border="1px solid coral"
+          justify="flex-start"
+          align={"center"}
+        >
+          <Image
+            w={{ base: "80px", md: "100px", lg: "100px" }}
+            h="25px"
+            src={my_logo}
+          />
+        </Flex>
 
-            <Box display={{ base: "none", md: "flex", lg: "flex" }} w="100%"
-            // border="1px solid coral"
+        <Flex flex="1" gap="4" justify="flex-start">
+          <Box height="10" width="50px" />
+          <Center
+            height="10"
+            _hover={{
+              backgroundColor: "#E45447",
+              transform: "rotate(-4deg)",
+              transformOrigin: "left bottom",
+              boxShadow: "rgb(38, 57, 77) 0px 20px 30px -10px;",
+              "& span": { color: "#ffffff" },
+            }}
+            cursor="pointer"
+            transition="all 0.3s ease"
+            p={{ base: "1", md: "2", lg: "2" }}
+          >
+            <Text
+              letterSpacing={"0.5px"}
+              as="span"
+              color="#58595B"
+              transition="color 0.2s ease"
+              fontSize={"14px"}
+              fontWeight={"600"}
+              fontFamily={"bodytext3"}
             >
-                <Flex cursor={"pointer"}
-                    //  border="1px solid coral"
-                    justify="flex-start" align={"center"}>
+              harshsharmaktm03@gmail.com
+            </Text>
+          </Center>
+          <Box height="10" width="120px" />
+        </Flex>
 
-                    <Image w={{ base: "80px", md: "100px", lg: "100px" }} h="25px" src={my_logo} />
-                </Flex>
-
-
-
-                <Flex flex="1" gap="4" justify="flex-start">
-                    <Box height="10" width="50px" />
-                    <Center height="10"
-                        _hover={{
-                            backgroundColor: "#E45447",
-                            transform: "rotate(-4deg)",
-                            transformOrigin: "left bottom",
-                            boxShadow: "rgb(38, 57, 77) 0px 20px 30px -10px;",
-                            "& span": { color: "#ffffff" },
-                        }} cursor="pointer"
-                        transition="all 0.3s ease"
-                        p={{ base: "1", md: "2", lg: "2" }}>
-                        <Text letterSpacing={"0.5px"} as="span" color="#58595B" transition="color 0.2s ease" fontSize={"14px"} fontWeight={"600"} fontFamily={"bodytext3"}>harshsharmaktm03@gmail.com</Text>
-                    </Center>
-                    <Box height="10" width="120px" />
-                </Flex>
-
-
-
-
-                <Flex flex="1"
-                    //  border="1px solid lime"
-                    gap="2" justify="flex-end">
-                    <Center
-                        color="#58595B"
-                        _hover={{
-                            backgroundColor: "#E45447",
-                            boxShadow: "rgb(38, 57, 77) 0px 20px 30px -10px;",
-                            transform: "rotate(-8deg)",
-                            transformOrigin: "left bottom",
-                            "& span": { color: "#ffffff" },
-                        }} cursor="pointer"
-                        transition="all 0.3s ease"
-                        height="10" width="120px" >
-                        <FaFile />
-                        <Text as="span" ml="5px" transition="color 0.2s ease" fontFamily={"bodytext1"} fontWeight={"500"}>Works</Text></Center>
-                    <Center
-                        color="#58595B"
-                        _hover={{
-                            backgroundColor: "#E45447",
-                            boxShadow: "rgb(38, 57, 77) 0px 20px 30px -10px;",
-                            transform: "rotate(-8deg)",
-                            transformOrigin: "left bottom",
-                            "& span": { color: "#ffffff" },
-                        }} cursor="pointer"
-                        transition="all 0.3s ease"
-                        height="10" width="120px" >
-                        <FaUserTie />
-                        <Text ml="5px" as="span" transition="color 0.2s ease" fontFamily={"bodytext1"} fontWeight={"500"}>Resume</Text></Center>
-                    <Center
-                        color="#58595B"
-                        _hover={{
-                            backgroundColor: "#E45447",
-                            boxShadow: "rgb(38, 57, 77) 0px 20px 30px -10px;",
-                            transform: "rotate(-8deg)",
-                            transformOrigin: "left bottom",
-                            "& span": { color: "#ffffff" },
-                        }} cursor="pointer"
-                        transition="all 0.3s ease"
-                        height="10" width="120px" >
-                        <MdContactPage />
-                        <Text ml="5px" as="span" transition="color 0.2s ease" fontFamily={"bodytext1"} fontWeight={"500"}>Shelf</Text></Center>
-                </Flex>
-
-            </Box>
-
-
-
-            {/* ..............................................................Mobile Navigation............................................................... */}
-
-
-
-            <Box
-                display={{ base: "flex", md: "none", lg: "none" }}
-                w="100%"
-                // border="1px solid coral"
-                p="2"
+        <Flex
+          flex="1"
+          //  border="1px solid lime"
+          gap="2"
+          justify="flex-end"
+        >
+          <Link to="/work">
+            <Center
+              color="#58595B"
+              _hover={{
+                backgroundColor: "#E45447",
+                boxShadow: "rgb(38, 57, 77) 0px 20px 30px -10px;",
+                transform: "rotate(-8deg)",
+                transformOrigin: "left bottom",
+                "& span": { color: "#ffffff" },
+              }}
+              cursor="pointer"
+              transition="all 0.3s ease"
+              height="10"
+              width="120px"
             >
-                <Flex
-                    w="100%"
-                    align="center"
-                    justify="space-between"
-                    cursor="pointer"
-                >
-                    <Image
-                        w={{ base: "80px", md: "100px", lg: "100px" }}
-                        h="20px"
-                        src={my_logo}
-                    />
+              <FaFile />
+              <Text
+                as="span"
+                ml="5px"
+                transition="color 0.2s ease"
+                fontFamily={"bodytext1"}
+                fontWeight={"500"}
+              >
+                Works
+              </Text>
+            </Center>
+          </Link>
+          <Link to="https://drive.google.com/file/d/12wRf2MhzpCeunuQBb6UV5HQOG_btKuZe/view">
+            <Center
+              color="#58595B"
+              _hover={{
+                backgroundColor: "#E45447",
+                boxShadow: "rgb(38, 57, 77) 0px 20px 30px -10px;",
+                transform: "rotate(-8deg)",
+                transformOrigin: "left bottom",
+                "& span": { color: "#ffffff" },
+              }}
+              cursor="pointer"
+              transition="all 0.3s ease"
+              height="10"
+              width="120px"
+            >
+              <FaUserTie />
+              <Text
+                ml="5px"
+                as="span"
+                transition="color 0.2s ease"
+                fontFamily={"bodytext1"}
+                fontWeight={"500"}
+              >
+                Resume
+              </Text>
+            </Center>
+          </Link>
+          <Center
+            color="#58595B"
+            _hover={{
+              backgroundColor: "#E45447",
+              boxShadow: "rgb(38, 57, 77) 0px 20px 30px -10px;",
+              transform: "rotate(-8deg)",
+              transformOrigin: "left bottom",
+              "& span": { color: "#ffffff" },
+            }}
+            cursor="pointer"
+            transition="all 0.3s ease"
+            height="10"
+            width="120px"
+          >
+            <MdContactPage />
+            <Text
+              ml="5px"
+              as="span"
+              transition="color 0.2s ease"
+              fontFamily={"bodytext1"}
+              fontWeight={"500"}
+            >
+              Shelf
+            </Text>
+          </Center>
+        </Flex>
+      </Box>
 
+      {/* ..............................................................Mobile Navigation............................................................... */}
 
-                    <Drawer.Root>
-                        <Drawer.Trigger asChild>
-                            <GiHamburgerMenu color="#58595B" size="22px" />
-                        </Drawer.Trigger>
-                        <Portal>
-                            <Drawer.Backdrop />
-                            <Drawer.Positioner>
-                                <Drawer.Content>
-                                    <Drawer.Context>
-                                        {(store) => (
-                                            <Drawer.Body pt="6" spaceY="3">
-                                                {/* <Text color="coral">Get more about me </Text> */}
-                                                <Flex flexDirection={"column"} w="100%" minH="50%">
-                                                    <Flex p="20px" justify={"flex-start"}>
+      <Box
+        display={{ base: "flex", md: "none", lg: "none" }}
+        w="100%"
+        // border="1px solid coral"
+        p="2"
+      >
+        <Flex w="100%" align="center" justify="space-between" cursor="pointer">
+          <Image
+            w={{ base: "80px", md: "100px", lg: "100px" }}
+            h="20px"
+            src={my_logo}
+          />
 
-                                                    </Flex>
-                                                    <Flex p="15px" justify={"flex-start"}>
-                                                        <MdEmail />  <Text ml="5px" fontFamily={"bodytext3"} fontSize={"sm"}>Email </Text>
-                                                    </Flex>
-                                                    <Flex p="15px" justify={"flex-start"}>
-                                                        <FaUserTie />  <Text ml="5px" fontFamily={"bodytext3"} fontSize={"sm"}>Resume </Text>
-                                                    </Flex>
-                                                    <Flex p="15px" justify={"flex-start"}>
-                                                        <FaFile /> <Text ml="5px" fontFamily={"bodytext3"} fontSize={"sm"}>Works </Text>
-                                                    </Flex>
-                                                    <Flex p="15px" justify={"flex-start"}>
-                                                        <MdContactPage /><Text ml="5px" fontFamily={"bodytext3"} fontSize={"sm"}>Shelf </Text>
-                                                    </Flex>
-                                                </Flex>
-                                                {/* <button onClick={() => store.setOpen(false)}>Close</button> */}
-                                            </Drawer.Body>
-                                        )}
-                                    </Drawer.Context>
-                                    <Drawer.CloseTrigger asChild>
-                                        <CloseButton size="xl" />
-                                    </Drawer.CloseTrigger>
-                                </Drawer.Content>
-                            </Drawer.Positioner>
-                        </Portal>
-                    </Drawer.Root>
-                </Flex>
-            </Box>
-
-        </Center>
-    )
+          <Drawer.Root>
+            <Drawer.Trigger asChild>
+              <GiHamburgerMenu color="#58595B" size="22px" />
+            </Drawer.Trigger>
+            <Portal>
+              <Drawer.Backdrop />
+              <Drawer.Positioner>
+                <Drawer.Content>
+                  <Drawer.Context>
+                    {(store) => (
+                      <Drawer.Body pt="6" spaceY="3">
+                        {/* <Text color="coral">Get more about me </Text> */}
+                        <Flex flexDirection={"column"} w="100%" minH="50%">
+                          <Flex p="20px" justify={"flex-start"}></Flex>
+                          <Flex p="15px" justify={"flex-start"}>
+                            <MdEmail />{" "}
+                            <Text
+                              ml="5px"
+                              fontFamily={"bodytext3"}
+                              fontSize={"sm"}
+                            >
+                              Email{" "}
+                            </Text>
+                          </Flex>
+                          <Link to="https://drive.google.com/file/d/12wRf2MhzpCeunuQBb6UV5HQOG_btKuZe/view">
+                            <Flex p="15px" justify={"flex-start"}>
+                              <FaUserTie />{" "}
+                              <Text
+                                ml="5px"
+                                fontFamily={"bodytext3"}
+                                fontSize={"sm"}
+                              >
+                                Resume
+                              </Text>
+                            </Flex>
+                          </Link>
+                          <Link to="/work">
+                            <Flex p="15px" justify={"flex-start"}>
+                              <FaFile />{" "}
+                              <Text
+                                ml="5px"
+                                fontFamily={"bodytext3"}
+                                fontSize={"sm"}
+                              >
+                                Works{" "}
+                              </Text>
+                            </Flex>
+                          </Link>
+                          <Flex p="15px" justify={"flex-start"}>
+                            <MdContactPage />
+                            <Text
+                              ml="5px"
+                              fontFamily={"bodytext3"}
+                              fontSize={"sm"}
+                            >
+                              Shelf{" "}
+                            </Text>
+                          </Flex>
+                        </Flex>
+                        {/* <button onClick={() => store.setOpen(false)}>Close</button> */}
+                      </Drawer.Body>
+                    )}
+                  </Drawer.Context>
+                  <Drawer.CloseTrigger asChild>
+                    <CloseButton size="xl" />
+                  </Drawer.CloseTrigger>
+                </Drawer.Content>
+              </Drawer.Positioner>
+            </Portal>
+          </Drawer.Root>
+        </Flex>
+      </Box>
+    </Center>
+  );
 }
 
-export default Navigator
+export default Navigator;
